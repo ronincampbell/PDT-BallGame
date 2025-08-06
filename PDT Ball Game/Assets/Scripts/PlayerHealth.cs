@@ -5,23 +5,28 @@ public class PlayerHealth : MonoBehaviour
 {
     public static readonly float maxHealth = 100;
     [SerializeField] private float currentHealth;
-    public TMP_Text playerHealthUI;
+    public TMP_Text playerHealthText;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         currentHealth = maxHealth;
+        if (!playerHealthText) { Debug.LogError("PlayerHealth: playerHealthText is missing, please assign in the inspector."); }
+        UpdateHealthDisplay();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void TakeDamage(int amount)
     {
-
+        currentHealth -= amount;
+        UpdateHealthDisplay();
     }
 
-    public void TakeDamage(float damage)
+    private void UpdateHealthDisplay()
     {
-        currentHealth -= damage;
+        if (playerHealthText != null)
+        {
+            playerHealthText.text = "Player Health: " + currentHealth;
+        }
     }
 
     public bool HasDied()

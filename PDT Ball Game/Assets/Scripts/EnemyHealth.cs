@@ -5,23 +5,33 @@ public class EnemyHealth : MonoBehaviour
 {
     public static readonly float maxHealth = 100;
     [SerializeField] private float currentHealth;
-    public TMP_Text enemyHealthUI;
+    private TMP_Text enemyHealthText;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         currentHealth = maxHealth;
+        UpdateHealthDisplay();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Initalise(TMP_Text text)
     {
-        
+        enemyHealthText = text;
+        UpdateHealthDisplay();
     }
 
-    public void TakeDamage(float damage)
+    public void TakeDamage(int amount)
     {
-        currentHealth -= damage;
+        currentHealth -= amount;
+        UpdateHealthDisplay();
+    }
+
+    private void UpdateHealthDisplay()
+    {
+        if (enemyHealthText != null)
+        {
+            enemyHealthText.text = "Enemy Health: " + currentHealth;
+        }
     }
 
     public bool HasDied()
