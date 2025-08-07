@@ -15,7 +15,7 @@ public class PlayerHealth : MonoBehaviour
         UpdateHealthDisplay();
     }
 
-    public void TakeDamage(int amount)
+    public void TakeDamage(float amount)
     {
         currentHealth -= amount;
         UpdateHealthDisplay();

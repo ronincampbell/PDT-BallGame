@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 
@@ -20,10 +21,15 @@ public class EnemyHealth : MonoBehaviour
         UpdateHealthDisplay();
     }
 
-    public void TakeDamage(int amount)
+    public void TakeDamage(float amount)
     {
         currentHealth -= amount;
+        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
         UpdateHealthDisplay();
+        if (HasDied()) {
+            Debug.Log("Enemy has died. Destroying GameObject in 5 seconds");
+            StartCoroutine(Die());
+        }
     }
 
     private void UpdateHealthDisplay()
@@ -34,9 +40,13 @@ public class EnemyHealth : MonoBehaviour
         }
     }
 
-    public bool HasDied()
+    public bool HasDied() { return currentHealth <= 0; }
+
+    IEnumerator Die()
     {
-        return currentHealth <= 0;
+        // TO-DO: Play Death animation here
+        yield return new WaitForSeconds(5.0f);
+        Destroy(gameObject);
     }
 
 }
