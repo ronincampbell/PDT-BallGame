@@ -7,6 +7,7 @@ public class ShopController : MonoBehaviour
     [SerializeField] private AddCoinsChannel _addCoinsChannel;
     [SerializeField] private AddPointsChannel _addPointsChannel;
     [SerializeField] private AddDamageChannel _addDamageChannel;
+    [SerializeField] private MatchManagerChannel _matchManagerChannel;
     [SerializeField] private List<BuyMechanismButton> _mechanisms;
     [SerializeField] private TextMeshProUGUI _moneyText;
     [SerializeField] private TextMeshProUGUI _damageText;
@@ -21,6 +22,8 @@ public class ShopController : MonoBehaviour
         _addCoinsChannel.OnAddCoins += AddCoins;
         _addPointsChannel.OnAddPoints += AddPoints;
         _addDamageChannel.OnAddDamage += AddDamage;
+        _matchManagerChannel.OnFinishRound += UpdateLocks;
+        _matchManagerChannel.OnStartRound += ForceLockAllItems;
         Initialize();
     }
 
@@ -29,6 +32,8 @@ public class ShopController : MonoBehaviour
         _addCoinsChannel.OnAddCoins -= AddCoins;
         _addPointsChannel.OnAddPoints -= AddPoints;
         _addDamageChannel.OnAddDamage -= AddDamage;
+        _matchManagerChannel.OnFinishRound -= UpdateLocks;
+        _matchManagerChannel.OnStartRound -= ForceLockAllItems;
     }
     
     private void Initialize()
@@ -51,8 +56,8 @@ public class ShopController : MonoBehaviour
         {
             AddCoins(price * -1);
             RectTransform spawn = _canvas.GetComponent<RectTransform>();
-            Mechanism mechanism = Instantiate(item, spawn).GetComponent<Mechanism>();
-            mechanism.Setup(spawn);
+            PlaceableMechanismComponent placeableMechanismComponent = Instantiate(item, spawn).GetComponent<PlaceableMechanismComponent>();
+            placeableMechanismComponent.Setup(spawn, price);
         }
 
         UpdateLocks();
@@ -65,6 +70,16 @@ public class ShopController : MonoBehaviour
             bool playerCanBuy = mechanism.Price <= _currentMoney;
             mechanism.EnableLock(!playerCanBuy);
         }
+    }
+
+    private void ForceLockAllItems()
+    {
+        foreach (BuyMechanismButton mechanism in _mechanisms)
+        {
+            mechanism.EnableLock(false);
+        }
+        
+        
     }
     
     private void AddCoins(float amount)

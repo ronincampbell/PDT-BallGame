@@ -4,22 +4,25 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
-public class Mechanism : MonoBehaviour
+public class PlaceableMechanismComponent : MonoBehaviour
 {
    [SerializeField] private Image _image;
    [SerializeField] private AddCoinsChannel _addCoinsChannel;
-   
+   [SerializeField] private MatchManagerChannel _matchManagerChannel;
+
    private RectTransform _canvasRectTransform;
    private InputSystem_Actions _inputs;
    private bool _isPlaceable = false;
+   private float _price;
 
-   public async void Setup(RectTransform canvasRectTransform)
+   public async void Setup(RectTransform canvasRectTransform, float price)
    {
       _canvasRectTransform = canvasRectTransform;
       SetUnplaceable();
       _image.enabled = false;
       await Task.Delay(100);
       _image.enabled = true;
+      _price = price;
    }
    
    private void OnEnable()
@@ -27,10 +30,18 @@ public class Mechanism : MonoBehaviour
       _inputs = new InputSystem_Actions();
       _inputs.Enable();
       _inputs.FindAction("Attack").performed += HandleClickPerformed;
+      _matchManagerChannel.OnStartRound += HandleStartRound;
+   }
+
+   private void HandleStartRound()
+   {
+      _addCoinsChannel.AddCoins(_price);
+      Destroy(gameObject);
    }
 
    private void OnDisable()
    {
+      _matchManagerChannel.OnStartRound -= HandleStartRound;
       _inputs.FindAction("Attack").performed -= HandleClickPerformed;
       _inputs.Disable();
    }
@@ -48,7 +59,7 @@ public class Mechanism : MonoBehaviour
    {
       if (!_isPlaceable)
       {
-         _addCoinsChannel.AddCoins(100);
+         _addCoinsChannel.AddCoins(_price);
          Destroy(gameObject);
       }
       Destroy(this);

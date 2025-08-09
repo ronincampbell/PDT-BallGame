@@ -54,6 +54,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _image: {fileID: 7685630356384534275}
   _addCoinsChannel: {fileID: 11400000, guid: 07eeeb35531fef64c954b37274e95cad, type: 2}
+  _matchManagerChannel: {fileID: 11400000, guid: d0c505ea562cfc440be7b8d5e3f13e2d, type: 2}
 --- !u!222 &921439149480750492
 CanvasRenderer:
   m_ObjectHideFlags: 0
