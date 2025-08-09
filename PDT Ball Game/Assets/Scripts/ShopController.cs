@@ -14,6 +14,7 @@ public class ShopController : MonoBehaviour
     [SerializeField] private float _currentMoney = 300;
     [SerializeField] private float _currentPoints = 0;
     [SerializeField] private float _currentDamage = 0;
+    [SerializeField] private Canvas _canvas;
 
     private void Awake()
     {
@@ -44,12 +45,14 @@ public class ShopController : MonoBehaviour
         UpdateLocks();
     }
 
-    private void BuyItemHandler(float price, GameObject item)
+    private void BuyItemHandler(float price, GameObject item, RectTransform spawn2)
     {
         if (price <= _currentMoney)
         {
             AddCoins(price * -1);
-            Instantiate(item);
+            RectTransform spawn = _canvas.GetComponent<RectTransform>();
+            Mechanism mechanism = Instantiate(item, spawn).GetComponent<Mechanism>();
+            mechanism.Setup(spawn);
         }
 
         UpdateLocks();

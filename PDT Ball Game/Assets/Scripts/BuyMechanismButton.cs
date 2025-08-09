@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class BuyMechanismButton : MonoBehaviour
 {
-    public Action<float, GameObject> OnBuy;
+    public Action<float, GameObject, RectTransform> OnBuy;
     
     [SerializeField] private PurchasableMechanism _mechanism;
     [SerializeField] private Button _button;
@@ -31,6 +31,6 @@ public class BuyMechanismButton : MonoBehaviour
 
     private void HandlePurchase()
     {
-        OnBuy?.Invoke(_mechanism.Price, _mechanism.Mechanism);
+        OnBuy?.Invoke(_mechanism.Price, _mechanism.Mechanism, _splashImage.rectTransform);
     }
 }
