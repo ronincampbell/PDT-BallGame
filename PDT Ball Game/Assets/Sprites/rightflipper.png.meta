@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 6d043f00db8cc5d4981b868067fbf327
+guid: 6eec96f93f097564faaa04634ae99aa0
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -247996242125104783
-    second: flipper_0
+      213: 8790724843405828007
+    second: rightflipper_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: flipper_0
+      name: rightflipper_0
       rect:
         serializedVersion: 2
         x: 0
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 17950825bb0fe8cf0800000000000000
-      internalID: -247996242125104783
+      spriteID: 7afd7697badeef970800000000000000
+      internalID: 8790724843405828007
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      flipper_0: -247996242125104783
+      rightflipper_0: 8790724843405828007
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
