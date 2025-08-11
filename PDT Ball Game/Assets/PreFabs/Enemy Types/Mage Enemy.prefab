@@ -115,3 +115,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackDamage: 30
+  _matchManagerChannel: {fileID: 11400000, guid: d0c505ea562cfc440be7b8d5e3f13e2d, type: 2}

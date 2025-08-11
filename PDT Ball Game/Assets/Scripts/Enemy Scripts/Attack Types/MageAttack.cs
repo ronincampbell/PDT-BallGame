@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class MageAttack : EnemyAttack
 {
+    [SerializeField] private MatchManagerChannel _matchManagerChannel;
+
     protected override void Start()
     {
         base.Start();
@@ -17,27 +19,18 @@ public class MageAttack : EnemyAttack
         }
 
         playerHealth.TakeDamage(attackDamage);
-        StartCoroutine(GravityAttack());
-        // TO-DO: Gravity increase attack in next round
-        Debug.Log($"Mage attacked player with {attackDamage}");
-    }
 
-    IEnumerator GravityAttack()
-    {
-        ApplyStrongerGravity();
-        yield return new WaitForSeconds(60.0f);
-        ResetGravity();
-    }
+        // Spawn gravity effect manager for next round
+        var go = new GameObject("GravityEffectManager");
+        var effectManager = go.AddComponent<GravityEffectManager>();
+        effectManager.Init(_matchManagerChannel);
 
-    private void ApplyStrongerGravity()
-    {
-        Physics.gravity = new Vector3(0, -9.81f*2f, 0);
-        Debug.Log("MageAttack: Applying Strong gravity");
-    }
+        // Delay applying gravity until round start
+        _matchManagerChannel.OnStartRound += () =>
+        {
+            if (effectManager != null) { effectManager.ApplyGravityEffect(); }
+        };
 
-    private void ResetGravity()
-    {
-        Physics.gravity = new Vector3(0, -9.81f, 0);
-        Debug.Log("MageAttack: Resetting gravity back to normal");
+        Debug.Log($"Mage attacked player with {attackDamage} — Gravity attack queued for next round start.");
     }
 }
