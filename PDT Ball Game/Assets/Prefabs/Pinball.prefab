@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6395619295441897472}
   - component: {fileID: 5789141645960594813}
   - component: {fileID: 1458533148696626255}
+  - component: {fileID: 5455108527236285926}
   m_Layer: 0
   m_Name: Pinball
   m_TagString: Untagged
@@ -152,3 +153,16 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &5455108527236285926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6570001718013137583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b8cd975b2c83e747aebe4b7d95c119b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  floatingTextPrefab: {fileID: 9209163066810914461, guid: 18fbdb13a38e97f47b544557fb7b2000, type: 3}
