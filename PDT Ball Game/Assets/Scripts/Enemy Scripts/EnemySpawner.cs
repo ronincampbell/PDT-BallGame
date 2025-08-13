@@ -12,7 +12,7 @@ public class EnemySpawner : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        SpawnSpecificEnemy(2);
+        SpawnSpecificEnemy(0);
         if (!healthText) { Debug.LogError("EnemySpawner: healthText is missing, please assign in the inspector."); }
     }
 
