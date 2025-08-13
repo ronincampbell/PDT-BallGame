@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7663320019481084990}
   m_Layer: 0
   m_Name: Enemy Spawner
-  m_TagString: Untagged
+  m_TagString: EnemySpawner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -48,5 +48,5 @@ MonoBehaviour:
   - {fileID: 5147401953941322921, guid: 2f014942a86baf5469741aca03481c99, type: 3}
   - {fileID: 7554316357853713498, guid: d63660bfd5c3a2a469cf5f720b7ab0ab, type: 3}
   - {fileID: 3785465374196642461, guid: 058d6c55a93947f43a4daaa3cb043e32, type: 3}
-  enemySpawnPositon: {x: 5, y: -4, z: 0}
+  enemySpawnPositon: {x: -2.7, y: -6, z: 0}
   healthText: {fileID: 0}

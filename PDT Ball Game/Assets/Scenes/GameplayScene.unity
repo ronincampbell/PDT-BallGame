@@ -1003,14 +1003,6 @@ PrefabInstance:
       propertyPath: healthText
       value: 
       objectReference: {fileID: 1484375692}
-    - target: {fileID: 7663320019481084990, guid: 3c3d2ce462b2e704c87a70a30846df46, type: 3}
-      propertyPath: enemySpawnPositon.x
-      value: -2.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 7663320019481084990, guid: 3c3d2ce462b2e704c87a70a30846df46, type: 3}
-      propertyPath: enemySpawnPositon.y
-      value: -6
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -10,6 +10,7 @@ TagManager:
   - Slanted
   - Exit
   - Launcher
+  - EnemySpawner
   layers:
   - Default
   - TransparentFX

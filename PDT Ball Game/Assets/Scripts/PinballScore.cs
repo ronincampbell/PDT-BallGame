@@ -5,6 +5,7 @@ public class PinballScore : MonoBehaviour
     private int score = 0;
     public GameObject floatingTextPrefab;
     private RectTransform uiCanvas;
+    private EnemySpawner enemySpawner;
 
     private PinballLauncher launcher;
 
@@ -12,6 +13,8 @@ public class PinballScore : MonoBehaviour
     {
         if (uiCanvas == null)
             uiCanvas = FindFirstObjectByType<Canvas>().GetComponent<RectTransform>();
+        if (enemySpawner == null)
+            enemySpawner = GameObject.FindGameObjectWithTag("EnemySpawner").GetComponent<EnemySpawner>();
     }
 
     void Start()
@@ -45,6 +48,7 @@ public class PinballScore : MonoBehaviour
         if (other.CompareTag("Exit"))
         {
             ShowFloatingText("Total Damage: " + score, transform.position, Color.red);
+            enemySpawner.GetCurrentEnemy().GetComponent<EnemyHealth>().TakeDamage(score);
 
             if (launcher != null)
                 launcher.UnlockPinballLauncher(true);
