@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     public List<GameObject> EnemyPrefabs;
-    public Vector3 enemySpawnPositon = new Vector3(0,-20f,0);
+    public Vector3 enemySpawnPositon;
     private EnemyAttack currentEnemy;
     [SerializeField] private TMP_Text healthText;
 
