@@ -11,6 +11,7 @@ TagManager:
   - Exit
   - Launcher
   - EnemySpawner
+  - MachineMechanicsList
   layers:
   - Default
   - TransparentFX

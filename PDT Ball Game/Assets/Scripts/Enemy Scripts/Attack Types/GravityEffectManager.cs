@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class GravityEffectManager : MonoBehaviour
@@ -18,8 +19,14 @@ public class GravityEffectManager : MonoBehaviour
 
     public void ApplyGravityEffect()
     {
-        Physics2D.gravity = new Vector3(0, -9.81f * 4f, 0);
-        Debug.Log("GravityEffectManager: Strong gravity applied.");
+        StartCoroutine(ApplyGravityAfterDelay(1f));
+    }
+
+    private IEnumerator ApplyGravityAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        Physics2D.gravity = new Vector3(0, -9.81f * 2.2f, 0);
+        Debug.Log("GravityEffectManager: Strong gravity applied after delay.");
     }
 
     private void StopGravityEffect()

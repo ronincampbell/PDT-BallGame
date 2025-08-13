@@ -250,6 +250,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spinner
       objectReference: {fileID: 0}
+    - target: {fileID: 8516106773476378777, guid: 2874f08ef4119254bb30e920c2edb4e7, type: 3}
+      propertyPath: m_ConnectedAnchor.x
+      value: -5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8516106773476378777, guid: 2874f08ef4119254bb30e920c2edb4e7, type: 3}
+      propertyPath: m_ConnectedAnchor.y
+      value: 2.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -408,7 +416,7 @@ GameObject:
   - component: {fileID: 464154454}
   m_Layer: 0
   m_Name: Mechanics
-  m_TagString: Untagged
+  m_TagString: MachineMechanicsList
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -429,8 +437,6 @@ Transform:
   - {fileID: 7541501068115569459}
   - {fileID: 462810056}
   - {fileID: 1290280439}
-  - {fileID: 1153907674}
-  - {fileID: 85743620}
   - {fileID: 1232828406}
   - {fileID: 39071107}
   - {fileID: 1880927133}
@@ -1023,7 +1029,7 @@ GameObject:
   - component: {fileID: 704094785}
   m_Layer: 0
   m_Name: Machine
-  m_TagString: Untagged
+  m_TagString: MachineMechanicsList
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1043,6 +1049,8 @@ Transform:
   m_Children:
   - {fileID: 1531957906}
   - {fileID: 1031613059}
+  - {fileID: 1153907674}
+  - {fileID: 85743620}
   - {fileID: 464154454}
   - {fileID: 2030119851}
   - {fileID: 738746706}
@@ -2578,7 +2586,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6934289944310728510, guid: 26031d4d9f147714da29261e3f4141ec, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 130.20999
+      value: 130.20996
       objectReference: {fileID: 0}
     - target: {fileID: 6934289944310728510, guid: 26031d4d9f147714da29261e3f4141ec, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -3653,7 +3661,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 511.21, y: -381}
+  m_AnchoredPosition: {x: 511.20996, y: -381}
   m_SizeDelta: {x: -1412.4784, y: -932.9341}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1776444601
@@ -3906,7 +3914,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6934289944310728510, guid: 26031d4d9f147714da29261e3f4141ec, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 130.20999
+      value: 130.20996
       objectReference: {fileID: 0}
     - target: {fileID: 6934289944310728510, guid: 26031d4d9f147714da29261e3f4141ec, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -4001,6 +4009,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spinner
       objectReference: {fileID: 0}
+    - target: {fileID: 8516106773476378777, guid: 2874f08ef4119254bb30e920c2edb4e7, type: 3}
+      propertyPath: m_ConnectedAnchor.x
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8516106773476378777, guid: 2874f08ef4119254bb30e920c2edb4e7, type: 3}
+      propertyPath: m_ConnectedAnchor.y
+      value: 2.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4089,7 +4105,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6934289944310728510, guid: 26031d4d9f147714da29261e3f4141ec, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 130.20999
+      value: 130.20996
       objectReference: {fileID: 0}
     - target: {fileID: 6934289944310728510, guid: 26031d4d9f147714da29261e3f4141ec, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -5079,7 +5095,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 464154454}
+    m_TransformParent: {fileID: 704094785}
     m_Modifications:
     - target: {fileID: 8827061879678241019, guid: 54e4b7387895a10438b610269096cf71, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5423,8 +5439,12 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 464154454}
+    m_TransformParent: {fileID: 704094785}
     m_Modifications:
+    - target: {fileID: 2537432358000212980, guid: 5cf7ed14cadfede40a0b597b200cddc1, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.2500002
+      objectReference: {fileID: 0}
     - target: {fileID: 2537432358000212980, guid: 5cf7ed14cadfede40a0b597b200cddc1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.72

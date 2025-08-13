@@ -20,17 +20,27 @@ public class MageAttack : EnemyAttack
 
         playerHealth.TakeDamage(attackDamage);
 
-        // Spawn gravity effect manager for next round
-        var go = new GameObject("GravityEffectManager");
-        var effectManager = go.AddComponent<GravityEffectManager>();
-        effectManager.Init(_matchManagerChannel);
+        // 50% chance to trigger the special gravity attack
+        bool triggerGravityAttack = Random.value < 0.5f; // Random.value gives a float between 0 and 1
 
-        // Delay applying gravity until round start
-        _matchManagerChannel.OnStartRound += () =>
+        if (triggerGravityAttack)
         {
-            if (effectManager != null) { effectManager.ApplyGravityEffect(); }
-        };
+            // Spawn gravity effect manager for next round
+            var go = new GameObject("GravityEffectManager");
+            var effectManager = go.AddComponent<GravityEffectManager>();
+            effectManager.Init(_matchManagerChannel);
 
-        Debug.Log($"Mage attacked player with {attackDamage} — Gravity attack queued for next round start.");
+            // Delay applying gravity until round start
+            _matchManagerChannel.OnStartRound += () =>
+            {
+                if (effectManager != null) { effectManager.ApplyGravityEffect(); }
+            };
+
+            Debug.Log($"Mage attacked player with {attackDamage} — Gravity attack queued for next round start.");
+        }
+        else
+        {
+            Debug.Log($"Mage attacked player with {attackDamage} — No gravity attack this time.");
+        }
     }
 }

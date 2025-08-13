@@ -12,16 +12,8 @@ public class EnemySpawner : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        SpawnEnemy();
+        SpawnSpecificEnemy(2);
         if (!healthText) { Debug.LogError("EnemySpawner: healthText is missing, please assign in the inspector."); }
-    }
-
-    public void SpawnEnemy()
-    {
-        GameObject enemy = Instantiate(EnemyPrefabs[0]);
-        enemy.transform.SetPositionAndRotation(enemySpawnPositon, transform.rotation);
-        enemy.GetComponent<EnemyHealth>().Initalise(healthText);
-        currentEnemy = enemy.GetComponent<EnemyAttack>();
     }
 
     public void SpawnRandomEnemy()
