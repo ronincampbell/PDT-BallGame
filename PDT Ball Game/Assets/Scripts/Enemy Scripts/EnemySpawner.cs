@@ -54,4 +54,19 @@ public class EnemySpawner : MonoBehaviour
     }
     public EnemyAttack GetCurrentEnemy() { return currentEnemy; }
     public void AttackPlayer() { GetCurrentEnemy().AtttackPlayer(); }
+
+    public void EndOfRoundLogic()
+    {
+        //Debug.Log("End of Round Logic");
+        if (IsEnemyDead())
+        {
+            Debug.Log("Enemy is dead at end of round");
+            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>().ResetMaxHealth();
+            SpawnRandomEnemy();
+        } else
+        {
+            Debug.Log("Enemy is alive and attacks player");
+            AttackPlayer();
+        }
+    }
 }

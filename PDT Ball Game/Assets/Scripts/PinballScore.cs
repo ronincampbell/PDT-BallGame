@@ -8,6 +8,7 @@ public class PinballScore : MonoBehaviour
     private EnemySpawner enemySpawner;
 
     private PinballLauncher launcher;
+    [SerializeField] private MatchManagerChannel _matchManagerChannel;
 
     void Awake()
     {
@@ -15,6 +16,7 @@ public class PinballScore : MonoBehaviour
             uiCanvas = FindFirstObjectByType<Canvas>().GetComponent<RectTransform>();
         if (enemySpawner == null)
             enemySpawner = GameObject.FindGameObjectWithTag("EnemySpawner").GetComponent<EnemySpawner>();
+
     }
 
     void Start()
@@ -53,6 +55,7 @@ public class PinballScore : MonoBehaviour
             if (launcher != null)
                 launcher.UnlockPinballLauncher(true);
 
+            _matchManagerChannel.FinishRound();
             Destroy(gameObject);
         }
     }

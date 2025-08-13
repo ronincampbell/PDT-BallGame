@@ -6,6 +6,7 @@ public class PinballLauncher : MonoBehaviour
     [SerializeField] private GameObject pinball;
     [SerializeField] private int pinballCount;
     [SerializeField] private float launchForce = 500f;
+    [SerializeField] private MatchManagerChannel _matchManagerChannel;
 
     private int ballsRemaining;
     private bool canLaunch = true;
@@ -23,6 +24,7 @@ public class PinballLauncher : MonoBehaviour
         {
             LaunchPinball();
             UnlockPinballLauncher(false);
+            _matchManagerChannel.StartRound();
         }
     }
 

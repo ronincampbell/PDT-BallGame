@@ -27,8 +27,8 @@ public class EnemyHealth : MonoBehaviour
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
         UpdateHealthDisplay();
         if (HasDied()) {
-            Debug.Log("Enemy has died. Destroying GameObject in 5 seconds");
-            StartCoroutine(Die());
+            Debug.Log("Enemy has died.");
+            Destroy(gameObject);
         }
     }
 

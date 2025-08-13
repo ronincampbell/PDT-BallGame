@@ -1,11 +1,13 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
     public static readonly float maxHealth = 100;
     [SerializeField] private float currentHealth;
     public TMP_Text playerHealthText;
+    [SerializeField] private RoundManager roundManager;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -19,6 +21,11 @@ public class PlayerHealth : MonoBehaviour
     {
         currentHealth -= amount;
         UpdateHealthDisplay();
+
+        if (HasDied()) {
+            Debug.Log("Player died, restarting...");
+            roundManager.Restart();
+        }
     }
 
     private void UpdateHealthDisplay()
@@ -32,6 +39,12 @@ public class PlayerHealth : MonoBehaviour
     public bool HasDied()
     {
         return currentHealth <= 0;
+    }
+
+    public void ResetMaxHealth()
+    {
+        currentHealth = maxHealth;
+        UpdateHealthDisplay();
     }
 
 }

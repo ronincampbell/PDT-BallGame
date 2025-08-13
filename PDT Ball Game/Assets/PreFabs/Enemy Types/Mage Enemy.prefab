@@ -114,5 +114,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8b0582f63bbf994a91dd6778beef1ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackDamage: 30
+  attackDamage: 10
   _matchManagerChannel: {fileID: 11400000, guid: d0c505ea562cfc440be7b8d5e3f13e2d, type: 2}
