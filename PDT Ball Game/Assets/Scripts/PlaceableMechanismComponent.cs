@@ -14,6 +14,7 @@ public class PlaceableMechanismComponent : MonoBehaviour
    private InputSystem_Actions _inputs;
    private bool _isPlaceable = false;
    private float _price;
+   private Camera _camera;
 
    public async void Setup(RectTransform canvasRectTransform, float price)
    {
@@ -27,6 +28,7 @@ public class PlaceableMechanismComponent : MonoBehaviour
    
    private void OnEnable()
    {
+      _camera = Camera.main;
       _inputs = new InputSystem_Actions();
       _inputs.Enable();
       _inputs.FindAction("Attack").performed += HandleClickPerformed;
@@ -50,8 +52,7 @@ public class PlaceableMechanismComponent : MonoBehaviour
    {
       Vector2 mousePos = _inputs.FindAction("Point").ReadValue<Vector2>();
       Vector2 localPosition;
-      RectTransformUtility.ScreenPointToLocalPointInRectangle(_canvasRectTransform, mousePos, null, out localPosition);
-
+      RectTransformUtility.ScreenPointToLocalPointInRectangle(_canvasRectTransform, mousePos, _camera, out localPosition);
       transform.localPosition = localPosition;
    }
    
