@@ -167,3 +167,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   floatingTextPrefab: {fileID: 9209163066810914461, guid: 18fbdb13a38e97f47b544557fb7b2000, type: 3}
   _matchManagerChannel: {fileID: 11400000, guid: d0c505ea562cfc440be7b8d5e3f13e2d, type: 2}
+  _addCoinsChannel: {fileID: 11400000, guid: 07eeeb35531fef64c954b37274e95cad, type: 2}
