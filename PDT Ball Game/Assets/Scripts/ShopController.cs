@@ -16,6 +16,7 @@ public class ShopController : MonoBehaviour
     [SerializeField] private float _currentPoints = 0;
     [SerializeField] private float _currentDamage = 0;
     [SerializeField] private Canvas _canvas;
+    [SerializeField] private GameObject mechanicsParent;
 
     private void Awake()
     {
@@ -57,6 +58,7 @@ public class ShopController : MonoBehaviour
             AddCoins(price * -1);
             RectTransform spawn = _canvas.GetComponent<RectTransform>();
             PlaceableMechanismComponent placeableMechanismComponent = Instantiate(item, spawn).GetComponent<PlaceableMechanismComponent>();
+            placeableMechanismComponent.transform.SetParent(mechanicsParent.transform);
             placeableMechanismComponent.Setup(spawn, price);
         }
 

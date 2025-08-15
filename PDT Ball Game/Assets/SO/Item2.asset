@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c85fa4944cf4fb41880bdbae544a497, type: 3}
   m_Name: Item2
   m_EditorClassIdentifier: 
-  _mechanism: {fileID: 0}
-  _sprite: {fileID: 0}
-  _price: 150
+  _mechanism: {fileID: 4686261278051621612, guid: b372722e6db4c3244a2011f7ccde6f5a, type: 3}
+  _sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
+  _price: 100

@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9c85fa4944cf4fb41880bdbae544a497, type: 3}
-  m_Name: Item1
+  m_Name: Item4
   m_EditorClassIdentifier: 
-  _mechanism: {fileID: 8044607524649523008, guid: 790eef73a23260f4fbce602bc49a5769, type: 3}
-  _sprite: {fileID: 6010198676210802814, guid: d3c19ff12f3b56744995f9fd45938f29, type: 3}
+  _mechanism: {fileID: 7174552131217903045, guid: 01c03f54abec3a842a3df687f4ac1528, type: 3}
+  _sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
   _price: 100

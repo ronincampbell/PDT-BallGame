@@ -19,7 +19,7 @@ public class PlaceableMechanismComponent : MonoBehaviour
    public async void Setup(RectTransform canvasRectTransform, float price)
    {
       _canvasRectTransform = canvasRectTransform;
-      SetUnplaceable();
+      SetPlaceable();
       _image.enabled = false;
       await Task.Delay(100);
       _image.enabled = true;
@@ -80,21 +80,21 @@ public class PlaceableMechanismComponent : MonoBehaviour
    
    private void OnTriggerEnter2D(Collider2D other)
    {
-      SetPlaceable();
+        SetPlaceable();
    }
 
    private void OnCollisionEnter2D(Collision2D other)
    {
-      SetUnplaceable();
-   }
+        SetUnplaceable();
+    }
 
    private void OnCollisionExit2D(Collision2D other)
    {
-      SetPlaceable();
-   }
+        SetPlaceable();
+    }
 
    private void OnTriggerExit2D(Collider2D other)
    {
-      SetUnplaceable();
-   }
+        SetUnplaceable();
+    }
 }
