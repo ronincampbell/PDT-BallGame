@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _mechanism: {fileID: 4686261278051621612, guid: b372722e6db4c3244a2011f7ccde6f5a, type: 3}
   _sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
-  _price: 100
+  _price: 40

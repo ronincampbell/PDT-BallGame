@@ -2097,6 +2097,7 @@ MonoBehaviour:
   _matchManagerChannel: {fileID: 11400000, guid: d0c505ea562cfc440be7b8d5e3f13e2d, type: 2}
   _preRoundText: {fileID: 1503141638}
   enemySpawner: {fileID: 2005380195}
+  _addDamageChannel: {fileID: 11400000, guid: 93a978b773f4d2c47b9f323d2d8db84c, type: 2}
 --- !u!1 &1031613058
 GameObject:
   m_ObjectHideFlags: 0
@@ -4883,7 +4884,7 @@ MonoBehaviour:
   _moneyText: {fileID: 2006325536}
   _damageText: {fileID: 490820908}
   _scoreText: {fileID: 1997365402}
-  _currentMoney: 300
+  _currentMoney: 30
   _currentPoints: 0
   _currentDamage: 0
   _canvas: {fileID: 1640827536}

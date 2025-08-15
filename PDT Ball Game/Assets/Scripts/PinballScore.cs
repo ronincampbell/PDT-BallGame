@@ -10,6 +10,8 @@ public class PinballScore : MonoBehaviour
     private PinballLauncher launcher;
     [SerializeField] private MatchManagerChannel _matchManagerChannel;
     [SerializeField] private AddCoinsChannel _addCoinsChannel;
+    [SerializeField] private AddPointsChannel _addPointsChannel;
+    [SerializeField] private AddDamageChannel _addDamageChannel;
 
     void Awake()
     {
@@ -42,6 +44,7 @@ public class PinballScore : MonoBehaviour
 
         score += points;
         Debug.Log($"Hit {collision.collider.tag}! Score: {score}");
+        _addDamageChannel.SetRoundDamage(score);
 
         ShowFloatingText("+" + points, collision.GetContact(0).point, Color.white);
     }
@@ -53,6 +56,7 @@ public class PinballScore : MonoBehaviour
             ShowFloatingText("Total Damage: " + score, transform.position, Color.red);
             enemySpawner.GetCurrentEnemy().GetComponent<EnemyHealth>().TakeDamage(score);
             _addCoinsChannel.AddCoins(score);
+            _addPointsChannel.AddPoints(score);
 
             if (launcher != null)
                 launcher.UnlockPinballLauncher(true);

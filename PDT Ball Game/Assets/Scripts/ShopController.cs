@@ -12,7 +12,7 @@ public class ShopController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _moneyText;
     [SerializeField] private TextMeshProUGUI _damageText;
     [SerializeField] private TextMeshProUGUI _scoreText;
-    [SerializeField] private float _currentMoney = 300;
+    [SerializeField] private float _currentMoney = 30;
     [SerializeField] private float _currentPoints = 0;
     [SerializeField] private float _currentDamage = 0;
     [SerializeField] private Canvas _canvas;
@@ -22,7 +22,7 @@ public class ShopController : MonoBehaviour
     {
         _addCoinsChannel.OnAddCoins += AddCoins;
         _addPointsChannel.OnAddPoints += AddPoints;
-        _addDamageChannel.OnAddDamage += AddDamage;
+        _addDamageChannel.OnSetRoundDamage += SetRoundDamage;
         _matchManagerChannel.OnFinishRound += UpdateLocks;
         _matchManagerChannel.OnStartRound += ForceLockAllItems;
         Initialize();
@@ -32,7 +32,7 @@ public class ShopController : MonoBehaviour
     {
         _addCoinsChannel.OnAddCoins -= AddCoins;
         _addPointsChannel.OnAddPoints -= AddPoints;
-        _addDamageChannel.OnAddDamage -= AddDamage;
+        _addDamageChannel.OnSetRoundDamage -= SetRoundDamage;
         _matchManagerChannel.OnFinishRound -= UpdateLocks;
         _matchManagerChannel.OnStartRound -= ForceLockAllItems;
     }
@@ -90,9 +90,9 @@ public class ShopController : MonoBehaviour
         _moneyText.text = _currentMoney.ToString();
     }
     
-    private void AddDamage(int damage)
+    private void SetRoundDamage(int damage)
     {
-        _currentDamage += damage;
+        _currentDamage = damage;
         _damageText.text = _currentDamage.ToString();
     }
 

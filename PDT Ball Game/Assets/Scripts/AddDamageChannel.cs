@@ -4,10 +4,10 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "AddDamageChannel", menuName = "Scriptable Objects/AddDamageChannel")]
 public class AddDamageChannel : ScriptableObject
 {
-    public Action<int> OnAddDamage;
+    public Action<int> OnSetRoundDamage;
     
-    public void AddDamage(int amount)
+    public void SetRoundDamage(int amount)
     {
-        OnAddDamage?.Invoke(amount);
+        OnSetRoundDamage?.Invoke(amount);
     }
 }

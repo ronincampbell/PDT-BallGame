@@ -9,7 +9,8 @@ public class RoundManager : MonoBehaviour
     [SerializeField] private MatchManagerChannel _matchManagerChannel;
     [SerializeField] private TextMeshProUGUI _preRoundText;
     [SerializeField] private EnemySpawner enemySpawner;
-    
+    [SerializeField] private AddDamageChannel _addDamageChannel;
+
     private int _roundNumber = 1;
 
     private void Awake()
@@ -27,6 +28,7 @@ public class RoundManager : MonoBehaviour
     private void HandleRoundStarted()
     {
         _preRoundText.enabled = false;
+        _addDamageChannel.SetRoundDamage(0);
     }
 
     private void HandleRoundFinished()
